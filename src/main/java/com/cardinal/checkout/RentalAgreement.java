@@ -90,7 +90,7 @@ public class RentalAgreement {
 
 	@Override
 	public String toString() {
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");  
 		
 		return String.format("Rental Agreement: \n"+
 							"Tool Code: %s\n"+
