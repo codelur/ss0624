@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 
 import com.cardinal.tools.Tool;
@@ -89,7 +90,8 @@ public class RentalAgreement {
 
 	@Override
 	public String toString() {
-
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy");
+		
 		return String.format("Rental Agreement: \n"+
 							"Tool Code: %s\n"+
 							"Tool type: %s\n"+
@@ -104,7 +106,7 @@ public class RentalAgreement {
 							"Discount amount: $%.2f\n"+
 							"Final charge: $%.2f\n",
 							tool.getToolCode(),tool.getToolType(),tool.getBrand(),this.rentalDays,
-							this.checkOutDate,this.dueDate,this.dailyRentalCharge,this.chargeDays,
+							formatter.format(checkOutDate), formatter.format(dueDate),this.dailyRentalCharge,this.chargeDays,
 							this.preDiscountCharge,this.discountPercent,this.discountAmount,this.finalCharge);
 	}
 
